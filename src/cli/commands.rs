@@ -162,6 +162,12 @@ pub struct Cli {
     #[arg(long = "images", conflicts_with = "no_images")]
     pub images: bool,
 
+    /// Show headings initially collapsed at specified level (1-6)
+    ///
+    /// Example: --collapse 2 shows levels 1 expanded but 2 and below collapsed.
+    #[arg(long = "collapse", value_name = "LEVEL", value_parser = clap::value_parser!(u8).range(1..=6))]
+    pub collapse: Option<u8>,
+
     /// Query expression for selecting/filtering document elements
     ///
     /// Uses a jq-like syntax for navigating and extracting markdown structure.

@@ -327,6 +327,9 @@ fn main() -> Result<()> {
 
         let mut app =
             treemd::App::new(doc, filename, file_path, config, color_mode, images_enabled);
+        if let Some(level) = args.collapse {
+            app.collapse_level(level as usize);
+        }
         if needs_file_picker {
             app.startup_needs_file_picker = true;
         }
