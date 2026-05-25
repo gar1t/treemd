@@ -327,6 +327,9 @@ fn main() -> Result<()> {
 
         let mut app =
             treemd::App::new(doc, filename, file_path, config, color_mode, images_enabled);
+        if args.no_outline_hash {
+            app.show_outline_hashes = false;
+        }
         if needs_file_picker {
             app.startup_needs_file_picker = true;
         }

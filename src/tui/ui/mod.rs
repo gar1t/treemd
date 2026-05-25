@@ -283,12 +283,14 @@ fn render_outline(frame: &mut Frame, app: &mut App, area: Rect) {
             // Build prefix (indent + indicators + #'s)
             let prefix_text = if item.text == DOCUMENT_OVERVIEW {
                 format!("{}{}{}📄 ", indent, expand_indicator, bookmark_indicator)
-            } else {
+            } else if app.show_outline_hashes {
                 let hashes = "#".repeat(item.level);
                 format!(
                     "{}{}{}{} ",
                     indent, expand_indicator, bookmark_indicator, hashes
                 )
+            } else {
+                format!("{}{}{}", indent, expand_indicator, bookmark_indicator)
             };
 
             // Build line with search highlighting using shared utility

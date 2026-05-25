@@ -162,6 +162,12 @@ pub struct Cli {
     #[arg(long = "images", conflicts_with = "no_images")]
     pub images: bool,
 
+    /// Hide the leading #/##/### markers in the outline pane
+    ///
+    /// Indentation already conveys heading level, so the markers are redundant.
+    #[arg(long = "no-outline-hash")]
+    pub no_outline_hash: bool,
+
     /// Query expression for selecting/filtering document elements
     ///
     /// Uses a jq-like syntax for navigating and extracting markdown structure.
