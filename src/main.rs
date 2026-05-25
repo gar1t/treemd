@@ -330,6 +330,9 @@ fn main() -> Result<()> {
         if let Some(level) = args.collapse {
             app.collapse_level(level as usize);
         }
+        if args.no_outline_hash {
+            app.show_outline_hashes = false;
+        }
         if needs_file_picker {
             app.startup_needs_file_picker = true;
         }

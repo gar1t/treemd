@@ -461,6 +461,9 @@ pub struct App {
     // Raw source view toggle
     pub show_raw_source: bool,
 
+    // Show #/##/### markers in the outline pane
+    pub show_outline_hashes: bool,
+
     // Pending file creation (for confirm dialog)
     pub pending_file_create: Option<PathBuf>,
     pub pending_file_create_message: Option<String>,
@@ -676,6 +679,8 @@ impl App {
 
             // Raw source view (off by default)
             show_raw_source: false,
+
+            show_outline_hashes: true,
 
             // Pending file creation (for confirm dialog)
             pending_file_create: None,
